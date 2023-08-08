@@ -32,7 +32,7 @@ export default (param) => {
   }
 
   if (template.page_location == null) {
-    template.page_location = window.location.href;
+    template.page_location = decodeURIComponent(window.location.href);
   }
 
   if (template.send_page_view == null) {
