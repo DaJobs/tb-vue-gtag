@@ -1,5 +1,5 @@
 {
-  "name": "vue-gtag",
+  "name": "tb-vue-gtag",
   "description": "Global Site Tag (gtag.js) plugin for Vue",
   "version": "0.0.0-development",
   "author": {
@@ -9,7 +9,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MatteoGabriele/vue-gtag"
+    "url": "https://github.com/DaJobs/tb-vue-gtag"
   },
   "scripts": {
     "commit": "git-cz",
@@ -75,9 +75,9 @@
     "vue-gtag.d.ts"
   ],
   "bugs": {
-    "url": "https://github.com/MatteoGabriele/vue-gtag/issues"
+    "url": "https://github.com/DaJobs/tb-vue-gtag/issues"
   },
-  "homepage": "https://github.com/MatteoGabriele/vue-gtag#readme",
+  "homepage": "https://github.com/DaJobs/tb-vue-gtag#readme",
   "peerDependencies": {
     "vue": "^2.0.0"
   },
