@@ -24,24 +24,22 @@ export default (param) => {
     const path = useFullPath ? param.fullPath : param.path;
 
     template = {
-      ...(param.name ||
-        (param.params && {
-          page_title:
-            Object.keys(param.params).length > 0
-              ? param.params[Object.keys(param.params)[0]]
-                  .slice(
-                    0,
-                    param.params[Object.keys(param.params)[0]].lastIndexOf(
-                      "-"
-                    ) > 0
-                      ? param.params[Object.keys(param.params)[0]].lastIndexOf(
-                          "-"
-                        )
-                      : param.params[Object.keys(param.params)[0]].length
-                  )
-                  .replaceAll("-", " ")
-              : param.name,
-        })),
+      ...((param.name || param.params) && {
+        page_title:
+          Object.keys(param.params).length > 0
+            ? param.params[Object.keys(param.params)[0]]
+                .slice(
+                  0,
+                  param.params[Object.keys(param.params)[0]].lastIndexOf("-") >
+                    0
+                    ? param.params[Object.keys(param.params)[0]].lastIndexOf(
+                        "-"
+                      )
+                    : param.params[Object.keys(param.params)[0]].length
+                )
+                .replaceAll("-", " ")
+            : param.name,
+      }),
       page_path: useBase
         ? getPathWithBase(path, base)
         : decodeURIComponent(path),
