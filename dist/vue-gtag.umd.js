@@ -148,7 +148,7 @@
     if (pathAsArray[0] === "" && base[base.length - 1] === "/") {
       pathAsArray.shift();
     }
-    return baseAsArray.join("/") + pathAsArray.join("/");
+    return decodeURIComponent(baseAsArray.join("/") + pathAsArray.join("/"));
   }
 
   var getDefaultParams = function getDefaultParams() {
@@ -285,7 +285,7 @@
       template = _objectSpread2(_objectSpread2({}, param.name && {
         page_title: param.name
       }), {}, {
-        page_path: useBase ? getPathWithBase(path, base) : path
+        page_path: useBase ? getPathWithBase(path, base) : decodeURIComponent(path)
       });
     } else {
       template = param;
@@ -296,6 +296,7 @@
     if (template.send_page_view == null) {
       template.send_page_view = true;
     }
+    template.page_referrer = decodeURIComponent(document.referrer);
     event("page_view", template);
   });
 
