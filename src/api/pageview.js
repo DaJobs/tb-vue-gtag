@@ -25,7 +25,9 @@ export default (param) => {
 
     template = {
       ...(param.name && { page_title: param.name }),
-      page_path: useBase ? getPathWithBase(path, base) : path,
+      page_path: useBase
+        ? getPathWithBase(path, base)
+        : decodeURIComponent(path),
     };
   } else {
     template = param;
@@ -38,6 +40,8 @@ export default (param) => {
   if (template.send_page_view == null) {
     template.send_page_view = true;
   }
+
+  template.page_referrer = decodeURIComponent(document.referrer);
 
   event("page_view", template);
 };

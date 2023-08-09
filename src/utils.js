@@ -98,5 +98,5 @@ export function getPathWithBase(path = "", base = "") {
     pathAsArray.shift();
   }
 
-  return baseAsArray.join("/") + pathAsArray.join("/");
+  return decodeURIComponent(baseAsArray.join("/") + pathAsArray.join("/"));
 }
