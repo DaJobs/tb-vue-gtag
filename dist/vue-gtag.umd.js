@@ -282,8 +282,8 @@
       var router = getRouter();
       var base = router && router.options.base;
       var path = useFullPath ? param.fullPath : param.path;
-      template = _objectSpread2(_objectSpread2({}, param.name && {
-        page_title: param.name
+      template = _objectSpread2(_objectSpread2({}, param.name || param.params && {
+        page_title: Object.keys(param.params).length > 0 ? param.params[Object.keys(param.params)[0]].slice(0, param.params[Object.keys(param.params)[0]].lastIndexOf("-") > 0 ? param.params[Object.keys(param.params)[0]].lastIndexOf("-") : param.params[Object.keys(param.params)[0]].length).replaceAll("-", " ") : param.name
       }), {}, {
         page_path: useBase ? getPathWithBase(path, base) : decodeURIComponent(path)
       });
